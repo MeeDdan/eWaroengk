@@ -1,0 +1,24 @@
+name: Demo CI/CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  demo-deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependency
+        run: echo "Install library..."
+
+      - name: Create file otomatis
+        run: |
+          echo "Ini dibuat otomatis %DATE% %TIME%" > surat_otomat.txt
+        shell: cmd
+
+      - name: Finish
+        run: echo "Deployment done!"
