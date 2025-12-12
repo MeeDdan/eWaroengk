@@ -1,5 +1,3 @@
-name: Demo CI/CD
-
 on:
   push:
     branches: ["main"]
@@ -9,16 +7,17 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout code
+      - name: 1. Ambil perubahan kode
         uses: actions/checkout@v3
 
-      - name: Install dependency
-        run: echo "Install library..."
+      - name: 2. Simulasi Install Dependency
+        run: echo "Sedang menginstall library yang dibutuhkan..."
 
-      - name: Create file otomatis
-        run: |
-          echo "Ini dibuat otomatis %DATE% %TIME%" > surat_otomat.txt
+      - name: 3. Membuat surat
         shell: cmd
+        run: |
+          echo Halo! Aku Liz dari Lumiere. > surat_dari_liz.txt
+          echo Aku bikin surat ini otomatis lho, Dibikinnya pas tanggal %DATE% jam %TIME% >> surat_dari_liz.txt
 
-      - name: Finish
-        run: echo "Deployment done!"
+      - name: 4. Selesai
+        run: echo "Deployment Berhasil!"
